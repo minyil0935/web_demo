@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>六下數學 L02 應用題｜圓面積與扇形面積</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f172a;
+      --card:#111c33;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --accent:#22c55e;
+      --line:#23314f;
+      --danger:#fb7185;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans TC, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(34,197,94,.14), transparent 55%),
+                  radial-gradient(900px 600px at 90% 20%, rgba(56,189,248,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    header{padding:28px 16px 16px; max-width:980px; margin:0 auto;}
+    .topbar{display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;}
+    h1{font-size:clamp(20px, 3.2vw, 30px); margin:0; letter-spacing:.2px;}
+    .subtitle{margin:6px 0 0; color:var(--muted); font-size:14px; max-width:70ch;}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--line);
+      background:rgba(15,23,42,.65); border-radius:999px; color:var(--muted); font-size:13px; box-shadow: var(--shadow);
+    }
+    main{max-width:980px; margin:0 auto; padding:0 16px 40px;}
+    .grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:14px; align-items:start;}
+    @media (max-width: 860px){.grid{grid-template-columns:1fr}}
+    .panel{background:linear-gradient(180deg, rgba(17,28,51,.92), rgba(17,28,51,.72)); border:1px solid var(--line);
+      border-radius:var(--radius); padding:14px; box-shadow: var(--shadow); overflow:hidden;}
+    .panel h2{margin:0 0 8px; font-size:16px; color:#dbeafe;}
+    .panel p{margin:6px 0; color:var(--muted); font-size:13px}
+
+    .card{border:1px solid var(--line); border-radius:var(--radius); padding:14px; background:rgba(15,23,42,.55); margin:10px 0;}
+    .qhead{display:flex; gap:10px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;}
+    .qid{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:12px;
+      background:rgba(34,197,94,.12); border:1px solid rgba(34,197,94,.35); color:var(--accent); font-weight:700; flex:0 0 auto;}
+    .qtitle{margin:0; font-size:15px; font-weight:650; letter-spacing:.2px;}
+    .qmeta{color:var(--muted); font-size:12px; margin-top:2px;}
+    .qtext{margin:10px 0 12px; color:var(--text)}
+
+    .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+    .field{display:flex; flex-direction:column; gap:6px; min-width:220px; flex: 1 1 220px;}
+    label{color:var(--muted); font-size:12px;}
+    input, select{
+      width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--line);
+      background:rgba(2,6,23,.55); color:var(--text); outline:none; font-size:14px;
+    }
+    input:focus, select:focus{border-color: rgba(34,197,94,.55); box-shadow: 0 0 0 3px rgba(34,197,94,.14)}
+
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    button{appearance:none; border:1px solid var(--line); border-radius:12px; padding:10px 12px;
+      background:rgba(15,23,42,.7); color:var(--text); cursor:pointer; font-size:14px;}
+    button.primary{border-color: rgba(34,197,94,.45); background: linear-gradient(180deg, rgba(34,197,94,.22), rgba(34,197,94,.10));}
+    button.danger{border-color: rgba(251,113,133,.35); background: linear-gradient(180deg, rgba(251,113,133,.18), rgba(251,113,133,.08));}
+
+    .result{margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid var(--line);
+      background:rgba(2,6,23,.45); color:var(--muted); font-size:13px;}
+    .ok{color: var(--accent)}
+    .bad{color: var(--danger)}
+    .mono{font-family: var(--mono)}
+
+    .formula{padding:10px 12px; border-radius:12px; border:1px dashed rgba(34,197,94,.35);
+      background: rgba(34,197,94,.06); color:#c7f9d4; font-size:13px; margin:10px 0 0;}
+
+    footer{max-width:980px; margin:0 auto; padding: 0 16px 22px; color: var(--muted); font-size:12px;}
+    a{color:#93c5fd}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div>
+        <h1>六下數學 L02 應用題</h1>
+        <p class="subtitle">單元：圓面積與扇形面積（本頁 π 取 <span class="mono">3.14</span>）。共 5 題，電腦與手機都可用。</p>
+      </div>
+      <div class="pill" title="本頁面離線也能用">
+        <span>π=3.14</span>
+        <span>｜</span>
+        <span>自動對答案</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel" aria-label="題目區">
+      <h2>應用題（生活情境）</h2>
+      <p>需要算到小數時，可四捨五入到小數第 2 位。面積單位請照題目要求。</p>
+
+      <!-- Q1 -->
+      <article class="card" id="q1">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">1</div>
+            <div>
+              <p class="qtitle">披薩老闆有沒有騙你？（倍數）</p>
+              <div class="qmeta">半徑變 2 倍 → 面積變 4 倍</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">大披薩直徑 <b>30 cm</b>，小披薩直徑 <b>15 cm</b>。老闆說「用 <b>2 個</b>小披薩代替 1 個大披薩，份量一樣」。請問老闆說法正確嗎？另外，大披薩面積是小披薩的幾倍？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a1a">老闆說法</label>
+            <select id="a1a">
+              <option value="">請選擇</option>
+              <option value="correct">正確</option>
+              <option value="wrong">不正確</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="a1b">倍數（填數字）</label>
+            <input id="a1b" inputmode="numeric" placeholder="例如：4" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(1)">檢查</button>
+          <button onclick="showSol(1)">看解法</button>
+          <button class="danger" onclick="clearOne(1)">清除</button>
+        </div>
+        <div class="result" id="r1">提示：先比直徑（也就是比半徑），再把倍數「平方」。</div>
+        <div class="formula" id="s1" hidden>
+          <div><b>解法：</b>直徑 30 是 15 的 2 倍 → 半徑也 2 倍 → 面積倍數 = 2² = <span class="mono">4</span> 倍。</div>
+          <div><b>結論：</b>老闆說法 <b>不正確</b>（2 個小披薩不等於 1 個大披薩）。</div>
+        </div>
+      </article>
+
+      <!-- Q2 -->
+      <article class="card" id="q2">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">2</div>
+            <div>
+              <p class="qtitle">甜甜圈糖霜（圓環＋分配律）</p>
+              <div class="qmeta">圓環 = 3.14 × (R² − r²)</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">甜甜圈外半徑 <b>8 cm</b>，內洞半徑 <b>3 cm</b>。糖霜（圓環）面積大約是多少 <span class="mono">cm²</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a2">答案（cm²）</label>
+            <input id="a2" inputmode="decimal" placeholder="例如：172.7" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(2)">檢查</button>
+          <button onclick="showSol(2)">看解法</button>
+          <button class="danger" onclick="clearOne(2)">清除</button>
+        </div>
+        <div class="result" id="r2">提示：先算 <span class="mono">(64 − 9)</span>，最後再乘 <span class="mono">3.14</span>。</div>
+        <div class="formula" id="s2" hidden>
+          <div><b>解法：</b>圓環 = 3.14 × (8×8 − 3×3) = 3.14 × (64 − 9) = 3.14 × 55 = <span class="mono">172.7</span></div>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="card" id="q3">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">3</div>
+            <div>
+              <p class="qtitle">狗在牆角活動（3/4 圓）</p>
+              <div class="qmeta">活動面積 = 圓面積 × 3/4</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">狗鍊長 <b>4 m</b>，綁在狗屋外側角落（牆角 90° 會擋住）。狗能活動的最大面積大約是多少 <span class="mono">m²</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a3">答案（m²）</label>
+            <input id="a3" inputmode="decimal" placeholder="例如：37.68" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(3)">檢查</button>
+          <button onclick="showSol(3)">看解法</button>
+          <button class="danger" onclick="clearOne(3)">清除</button>
+        </div>
+        <div class="result" id="r3">提示：先算整個圓，再扣掉被牆擋住的 1/4。</div>
+        <div class="formula" id="s3" hidden>
+          <div><b>解法：</b>整圓 = 3.14×4×4 = 3.14×16 = 50.24</div>
+          <div>活動 = 50.24×3/4 = <span class="mono">37.68</span>（m²）</div>
+        </div>
+      </article>
+
+      <!-- Q4 -->
+      <article class="card" id="q4">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">4</div>
+            <div>
+              <p class="qtitle">時鐘分針掃過面積（走分鐘→比例）</p>
+              <div class="qmeta">走 20 分鐘 = 1/3 圈</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">分針長 <b>15 cm</b>。分針走了 <b>20 分鐘</b>，掃過的扇形面積大約是多少 <span class="mono">cm²</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a4">答案（cm²）</label>
+            <input id="a4" inputmode="decimal" placeholder="例如：235.5" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(4)">檢查</button>
+          <button onclick="showSol(4)">看解法</button>
+          <button class="danger" onclick="clearOne(4)">清除</button>
+        </div>
+        <div class="result" id="r4">提示：先算整圓面積，再乘 <span class="mono">20/60</span>。</div>
+        <div class="formula" id="s4" hidden>
+          <div><b>解法：</b>占比 = 20/60 = 1/3</div>
+          <div>整圓 = 3.14×15×15 = 3.14×225 = 706.5</div>
+          <div>扇形 = 706.5×1/3 = <span class="mono">235.5</span>（cm²）</div>
+        </div>
+      </article>
+
+      <!-- Q5 -->
+      <article class="card" id="q5">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">5</div>
+            <div>
+              <p class="qtitle">葉片重疊（扇形相加再相減）</p>
+              <div class="qmeta">2個1/4圓面積和 − 正方形面積</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">在邊長 <b>10 cm</b> 的正方形紙上，以左下角、右上角為圓心，各畫一個半徑 <b>10 cm</b> 的 <b>1/4 圓</b>。兩個扇形在中間交疊成「葉片」。葉片面積大約是多少 <span class="mono">cm²</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a5">答案（cm²）</label>
+            <input id="a5" inputmode="decimal" placeholder="例如：57" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(5)">檢查</button>
+          <button onclick="showSol(5)">看解法</button>
+          <button class="danger" onclick="clearOne(5)">清除</button>
+        </div>
+        <div class="result" id="r5">提示：先算 1/4 圓面積，再乘 2，最後減掉正方形。</div>
+        <div class="formula" id="s5" hidden>
+          <div><b>解法：</b>兩個 1/4 圓總和 = 10×10×3.14×(1/4)×2 = 157</div>
+          <div>正方形 = 10×10 = 100</div>
+          <div>葉片 = 157 − 100 = <span class="mono">57</span>（cm²）</div>
+        </div>
+      </article>
+
+      <div class="btnrow" style="margin-top:14px">
+        <button onclick="showAllSolutions()">全部看解法</button>
+        <button class="danger" onclick="resetAll()">全部清除</button>
+      </div>
+    </section>
+
+    <aside class="panel" aria-label="公式小抄">
+      <h2>公式小抄（考前 30 秒）</h2>
+      <p><b>本頁 π 一律用 3.14</b></p>
+      <div class="card" style="margin:10px 0 0">
+        <p style="margin:0 0 8px; color:#dbeafe; font-weight:650">圓面積</p>
+        <div class="formula" style="margin:0">
+          <div class="mono">A = r × r × 3.14</div>
+          <div>口訣：半徑乘半徑，再乘三一四</div>
+        </div>
+      </div>
+      <div class="card">
+        <p style="margin:0 0 8px; color:#dbeafe; font-weight:650">扇形面積</p>
+        <div class="formula" style="margin:0">
+          <div class="mono">A扇 = 圓面積 × (圓心角 ÷ 360)</div>
+          <div>口訣：先算整個圓，再乘角度份</div>
+        </div>
+      </div>
+      <div class="card">
+        <p style="margin:0 0 8px; color:#dbeafe; font-weight:650">圓環</p>
+        <div class="formula" style="margin:0">
+          <div class="mono">圓環 = 3.14 × (R² − r²)</div>
+          <div>口訣：先括號、後乘三一四</div>
+        </div>
+      </div>
+      <div class="card">
+        <p style="margin:0 0 8px; color:#dbeafe; font-weight:650">倍數關係</p>
+        <div class="formula" style="margin:0">
+          <div>半徑 n 倍 → 面積 n² 倍</div>
+          <div>口訣：半徑幾倍，面積倍數平方</div>
+        </div>
+      </div>
+      <p style="margin-top:10px">回到 <a href="./index.html">L02 基礎練習題</a>。</p>
+    </aside>
+  </main>
+
+  <footer>
+    <div>提示：本頁可離線使用。若孩子卡住，先讓他說「我現在是在算整個圓？還是算圓的一部分？」</div>
+  </footer>
+
+  <script>
+    const EPS = 0.02; // tolerance for decimals
+
+    const ANSWERS = {
+      1: { // (statement, ratio)
+        statement: 'wrong',
+        ratio: 4,
+      },
+      2: {value: 172.7, unit: 'cm²'},
+      3: {value: 37.68, unit: 'm²'},
+      4: {value: 235.5, unit: 'cm²'},
+      5: {value: 57, unit: 'cm²'},
+    };
+
+    function parseNum(v){
+      if (v == null) return NaN;
+      const t = String(v).trim().replace(/,/g,'');
+      if (!t) return NaN;
+      return Number(t);
+    }
+
+    function near(a,b){
+      return Math.abs(a-b) <= EPS;
+    }
+
+    function setResult(i, ok, text){
+      const el = document.getElementById('r'+i);
+      el.classList.remove('ok','bad');
+      el.classList.add(ok ? 'ok' : 'bad');
+      el.textContent = text;
+    }
+
+    function check(i){
+      if (i === 1){
+        const st = document.getElementById('a1a').value;
+        const ratio = parseNum(document.getElementById('a1b').value);
+        const okSt = st === ANSWERS[1].statement;
+        const okRa = ratio === ANSWERS[1].ratio;
+        if (okSt && okRa){
+          setResult(1, true, '✅ 正確！老闆說法不正確，而且大披薩面積是小披薩的 4 倍。');
+        } else {
+          const parts = [];
+          if (!okSt) parts.push('老闆說法（正確/不正確）');
+          if (!okRa) parts.push('倍數');
+          setResult(1, false, `❌ 再檢查：${parts.join('、')}。提示：半徑 2 倍 → 面積 4 倍。`);
+        }
+        return;
+      }
+
+      const v = parseNum(document.getElementById('a'+i).value);
+      if (!Number.isFinite(v)){
+        setResult(i, false, '請先輸入數字答案。');
+        return;
+      }
+      const target = ANSWERS[i].value;
+      const ok = near(v, target) || v === target;
+      if (ok){
+        setResult(i, true, '✅ 正確！');
+      } else {
+        setResult(i, false, `❌ 再想想～（提示：答案約 ${target} ${ANSWERS[i].unit || ''}）`);
+      }
+    }
+
+    function showSol(i){
+      document.getElementById('s'+i).hidden = false;
+    }
+
+    function showAllSolutions(){
+      for (let i=1;i<=5;i++) showSol(i);
+    }
+
+    function clearOne(i){
+      if (i===1){
+        document.getElementById('a1a').value = '';
+        document.getElementById('a1b').value = '';
+      } else {
+        document.getElementById('a'+i).value = '';
+      }
+      document.getElementById('s'+i).hidden = true;
+      document.getElementById('r'+i).classList.remove('ok','bad');
+      document.getElementById('r'+i).textContent = '已清除。';
+    }
+
+    function resetAll(){
+      for (let i=1;i<=5;i++) clearOne(i);
+    }
+  </script>
+</body>
+</html>
