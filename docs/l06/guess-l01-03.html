@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>六下數學｜第1-3單元 考前猜題 10 題</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f172a;
+      --card:#111c33;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --accent:#22c55e;
+      --line:#23314f;
+      --danger:#fb7185;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans TC, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(34,197,94,.14), transparent 55%),
+                  radial-gradient(900px 600px at 90% 20%, rgba(56,189,248,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    header{padding:28px 16px 16px; max-width:1060px; margin:0 auto;}
+    .topbar{display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;}
+    h1{font-size:clamp(20px, 3.2vw, 30px); margin:0; letter-spacing:.2px;}
+    .subtitle{margin:6px 0 0; color:var(--muted); font-size:14px; max-width:80ch;}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--line);
+      background:rgba(15,23,42,.65); border-radius:999px; color:var(--muted); font-size:13px; box-shadow: var(--shadow);
+    }
+    main{max-width:1060px; margin:0 auto; padding:0 16px 40px;}
+    .grid{display:grid; grid-template-columns: 1.25fr .75fr; gap:14px; align-items:start;}
+    @media (max-width: 900px){.grid{grid-template-columns:1fr}}
+
+    .panel{background:linear-gradient(180deg, rgba(17,28,51,.92), rgba(17,28,51,.72)); border:1px solid var(--line);
+      border-radius:var(--radius); padding:14px; box-shadow: var(--shadow); overflow:hidden;}
+    .panel h2{margin:0 0 8px; font-size:16px; color:#dbeafe;}
+    .panel p{margin:6px 0; color:var(--muted); font-size:13px}
+
+    .card{border:1px solid var(--line); border-radius:var(--radius); padding:14px; background:rgba(15,23,42,.55); margin:10px 0;}
+    .qhead{display:flex; gap:10px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;}
+    .qid{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:12px;
+      background:rgba(34,197,94,.12); border:1px solid rgba(34,197,94,.35); color:var(--accent); font-weight:700; flex:0 0 auto;}
+    .tag{display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; font-size:12px; color:#c7d2fe;
+      border:1px solid rgba(99,102,241,.35); background:rgba(99,102,241,.12);}
+    .qtitle{margin:0; font-size:15px; font-weight:650; letter-spacing:.2px;}
+    .qmeta{color:var(--muted); font-size:12px; margin-top:2px;}
+    .qtext{margin:10px 0 12px; color:var(--text)}
+
+    .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+    .field{display:flex; flex-direction:column; gap:6px; min-width:240px; flex: 1 1 240px;}
+    label{color:var(--muted); font-size:12px;}
+    input, select{
+      width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--line);
+      background:rgba(2,6,23,.55); color:var(--text); outline:none; font-size:14px;
+    }
+    input:focus, select:focus{border-color: rgba(34,197,94,.55); box-shadow: 0 0 0 3px rgba(34,197,94,.14)}
+
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    button{appearance:none; border:1px solid var(--line); border-radius:12px; padding:10px 12px;
+      background:rgba(15,23,42,.7); color:var(--text); cursor:pointer; font-size:14px;}
+    button.primary{border-color: rgba(34,197,94,.45); background: linear-gradient(180deg, rgba(34,197,94,.22), rgba(34,197,94,.10));}
+    button.danger{border-color: rgba(251,113,133,.35); background: linear-gradient(180deg, rgba(251,113,133,.18), rgba(251,113,133,.08));}
+
+    .result{margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid var(--line);
+      background:rgba(2,6,23,.45); color:var(--muted); font-size:13px;}
+    .ok{color: var(--accent)}
+    .bad{color: var(--danger)}
+    .mono{font-family: var(--mono)}
+
+    .formula{padding:10px 12px; border-radius:12px; border:1px dashed rgba(34,197,94,.35);
+      background: rgba(34,197,94,.06); color:#c7f9d4; font-size:13px; margin:10px 0 0;}
+
+    .kbd{font-family:var(--mono); font-size:12px; padding:2px 6px; border:1px solid var(--line); border-bottom-width:2px; border-radius:8px; background:rgba(2,6,23,.55); color:#e2e8f0}
+
+    footer{max-width:1060px; margin:0 auto; padding: 0 16px 22px; color: var(--muted); font-size:12px;}
+    a{color:#93c5fd}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div>
+        <h1>六下數學｜第 1～3 單元 考前猜題（10 題）</h1>
+        <p class="subtitle">範圍：①小數與分數四則混合 ②圓面積與扇形面積（π=3.14）③速率（含平均速率）。每題可按「檢查」與「看解法」。</p>
+      </div>
+      <div class="pill" title="本頁面離線也能用">
+        <span>10 題</span><span>｜</span><span>自動對答案</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel" aria-label="題目區">
+      <h2>猜題練習</h2>
+      <p>分數答案可輸入：<span class="kbd">2/3</span>、帶分數 <span class="kbd">1 7/12</span>（中間空格）。小數可直接輸入。</p>
+
+      <!-- Q1 -->
+      <article class="card" id="q1">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">1</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">烤餅乾的麵粉（連減混合運算）</p>
+                <span class="tag">單元 1</span>
+              </div>
+              <div class="qmeta">算式：1.5 − 0.5 − 1/3</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">媽媽買了 <b>1.5 公斤</b>麵粉，先用了 <b>1/3 公斤</b>做大餅乾，又用了 <b>0.5 公斤</b>做小餅乾。還剩多少公斤？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a1">答案（公斤）</label>
+            <input id="a1" inputmode="text" placeholder="例如：2/3" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(1)">檢查</button>
+          <button onclick="showSol(1)">看解法</button>
+          <button class="danger" onclick="clearOne(1)">清除</button>
+        </div>
+        <div class="result" id="r1">提示：遇到 <span class="mono">1/3</span> 不要硬用 0.33 代替。</div>
+        <div class="formula" id="s1" hidden>
+          <div><b>解法：</b>先算 1.5−0.5=1，再算 1−1/3= <span class="mono">2/3</span>（公斤）。</div>
+          <div><b>易錯：</b>1/3 不是有限小數，別用 0.33 當它。</div>
+        </div>
+      </article>
+
+      <!-- Q2 -->
+      <article class="card" id="q2">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">2</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">採買彩帶（分配律簡化）</p>
+                <span class="tag">單元 1</span>
+              </div>
+              <div class="qmeta">36×2 1/4 + 36×1.75</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">每條彩帶單價 <b>36 元</b>。小華買了 <b>2 1/4 條</b>，小明買了 <b>1.75 條</b>。兩人合買共要付多少元？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a2">答案（元）</label>
+            <input id="a2" inputmode="numeric" placeholder="例如：144" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(2)">檢查</button>
+          <button onclick="showSol(2)">看解法</button>
+          <button class="danger" onclick="clearOne(2)">清除</button>
+        </div>
+        <div class="result" id="r2">提示：把 2 1/4 轉成 2.25，看看能不能湊整數。</div>
+        <div class="formula" id="s2" hidden>
+          <div><b>解法：</b>2 1/4 = 2.25。利用分配律：36×(2.25+1.75)=36×4=<span class="mono">144</span>（元）。</div>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="card" id="q3">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">3</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">鐵絲截斷（括號先算）</p>
+                <span class="tag">單元 1</span>
+              </div>
+              <div class="qmeta">(8.5 − 2 1/6) ÷ 4</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">一條鐵絲長 <b>8.5 公尺</b>，先剪去 <b>2 1/6 公尺</b>，剩下平均分成 <b>4 段</b>。每一段多長？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a3">答案（公尺）</label>
+            <input id="a3" inputmode="text" placeholder="例如：1 7/12" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(3)">檢查</button>
+          <button onclick="showSol(3)">看解法</button>
+          <button class="danger" onclick="clearOne(3)">清除</button>
+        </div>
+        <div class="result" id="r3">提示：先把 8.5 變成分數（8 1/2）。</div>
+        <div class="formula" id="s3" hidden>
+          <div><b>解法：</b>8.5 = 8 1/2 = 8 3/6。括號：8 3/6 − 2 1/6 = 6 2/6 = 6 1/3。</div>
+          <div>6 1/3 ÷ 4 = 19/3 × 1/4 = 19/12 = <span class="mono">1 7/12</span>（公尺）。</div>
+        </div>
+      </article>
+
+      <!-- Q4 -->
+      <article class="card" id="q4">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">4</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">公園環形步道（圓環面積）</p>
+                <span class="tag">單元 2</span>
+              </div>
+              <div class="qmeta">π=3.14，圓環 = 3.14×(R²−r²)</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">圓形水池直徑 <b>10 m</b>，外圍鋪一條寬 <b>2 m</b> 的環形步道。步道面積約多少 <span class="mono">m²</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a4">答案（m²）</label>
+            <input id="a4" inputmode="decimal" placeholder="例如：75.36" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(4)">檢查</button>
+          <button onclick="showSol(4)">看解法</button>
+          <button class="danger" onclick="clearOne(4)">清除</button>
+        </div>
+        <div class="result" id="r4">提示：水池半徑 5，大圓半徑 7。</div>
+        <div class="formula" id="s4" hidden>
+          <div><b>解法：</b>(49−25)×3.14 = 24×3.14 = <span class="mono">75.36</span>（m²）。</div>
+        </div>
+      </article>
+
+      <!-- Q5 -->
+      <article class="card" id="q5">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">5</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">看門狗牆角活動（3/4 圓）</p>
+                <span class="tag">單元 2</span>
+              </div>
+              <div class="qmeta">活動 = 3.14×r²×3/4</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">狗用長 <b>4 m</b> 牽繩綁在農舍外角（牆角 90° 會擋住）。最大活動面積約多少 <span class="mono">m²</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a5">答案（m²）</label>
+            <input id="a5" inputmode="decimal" placeholder="例如：37.68" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(5)">檢查</button>
+          <button onclick="showSol(5)">看解法</button>
+          <button class="danger" onclick="clearOne(5)">清除</button>
+        </div>
+        <div class="result" id="r5">提示：先算整圓 3.14×16，再乘 3/4。</div>
+        <div class="formula" id="s5" hidden>
+          <div><b>解法：</b>3.14×16×3/4 = 3.14×12 = <span class="mono">37.68</span>（m²）。</div>
+        </div>
+      </article>
+
+      <!-- Q6 -->
+      <article class="card" id="q6">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">6</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">時鐘分針掃過面積（扇形）</p>
+                <span class="tag">單元 2</span>
+              </div>
+              <div class="qmeta">20 分鐘 = 1/3 圈</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">分針長 <b>15 cm</b>，從 10:10 走到 10:30（<b>20 分鐘</b>）。掃過的扇形面積約多少 <span class="mono">cm²</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a6">答案（cm²）</label>
+            <input id="a6" inputmode="decimal" placeholder="例如：235.5" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(6)">檢查</button>
+          <button onclick="showSol(6)">看解法</button>
+          <button class="danger" onclick="clearOne(6)">清除</button>
+        </div>
+        <div class="result" id="r6">提示：15×15×3.14 之後再乘 1/3。</div>
+        <div class="formula" id="s6" hidden>
+          <div><b>解法：</b>占比 20/60=1/3。15×15×3.14×1/3 = 225×3.14÷3 = 75×3.14 = <span class="mono">235.5</span>（cm²）。</div>
+        </div>
+      </article>
+
+      <!-- Q7 -->
+      <article class="card" id="q7">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">7</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">誰跑得比較快？（單位換算）</p>
+                <span class="tag">單元 3</span>
+              </div>
+              <div class="qmeta">把兩個速率換成同一種單位再比</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">獵豹時速 <b>105 km/h</b>，鴕鳥分速 <b>1200 m/min</b>。誰比較快？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a7">答案</label>
+            <select id="a7">
+              <option value="">請選擇</option>
+              <option value="cheetah">獵豹</option>
+              <option value="ostrich">鴕鳥</option>
+            </select>
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(7)">檢查</button>
+          <button onclick="showSol(7)">看解法</button>
+          <button class="danger" onclick="clearOne(7)">清除</button>
+        </div>
+        <div class="result" id="r7">提示：1200 m/min = 1.2 km/min，再乘 60 變 km/h。</div>
+        <div class="formula" id="s7" hidden>
+          <div><b>解法：</b>1200 m/min = 1.2 km/min → 1.2×60 = 72 km/h。105 &gt; 72，所以比較快的是 <span class="mono">獵豹</span>。</div>
+        </div>
+      </article>
+
+      <!-- Q8 -->
+      <article class="card" id="q8">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">8</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">全程平均速率（總距離÷總時間）</p>
+                <span class="tag">單元 3</span>
+              </div>
+              <div class="qmeta">平均速率不是把兩段速率平均！</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">甲→乙 <b>90 km</b> 用 <b>1.5 小時</b>；乙→丙 <b>60 km</b> 用 <b>1 小時</b>。全程平均速率多少 <span class="mono">km/h</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a8">答案（km/h）</label>
+            <input id="a8" inputmode="decimal" placeholder="例如：60" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(8)">檢查</button>
+          <button onclick="showSol(8)">看解法</button>
+          <button class="danger" onclick="clearOne(8)">清除</button>
+        </div>
+        <div class="result" id="r8">提示：總距離 150；總時間 2.5。</div>
+        <div class="formula" id="s8" hidden>
+          <div><b>解法：</b>平均速率 = (90+60)/(1.5+1)=150/2.5=<span class="mono">60</span>（km/h）。</div>
+        </div>
+      </article>
+
+      <!-- Q9 -->
+      <article class="card" id="q9">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">9</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">上山下山平均速率（往返）</p>
+                <span class="tag">單元 3</span>
+              </div>
+              <div class="qmeta">平均速率 = 總距離 ÷ 總時間</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">山路單趟 <b>12 km</b>。上山用 <b>4 小時</b>；下山速率 <b>4 km/h</b>。往返平均速率多少 <span class="mono">km/h</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a9">答案（km/h）</label>
+            <input id="a9" inputmode="text" placeholder="例如：3 3/7" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(9)">檢查</button>
+          <button onclick="showSol(9)">看解法</button>
+          <button class="danger" onclick="clearOne(9)">清除</button>
+        </div>
+        <div class="result" id="r9">提示：先算下山時間，再算總距離/總時間。</div>
+        <div class="formula" id="s9" hidden>
+          <div><b>解法：</b>下山時間 = 12÷4 = 3 小時。總距離 24；總時間 7。平均速率 = 24/7 = <span class="mono">3 3/7</span>（km/h）。</div>
+        </div>
+      </article>
+
+      <!-- Q10 -->
+      <article class="card" id="q10">
+        <div class="qhead">
+          <div class="row" style="gap:12px">
+            <div class="qid">10</div>
+            <div>
+              <div class="row" style="gap:10px">
+                <p class="qtitle">時間換算後算時速</p>
+                <span class="tag">單元 3</span>
+              </div>
+              <div class="qmeta">45 分鐘 = 0.75 小時</div>
+            </div>
+          </div>
+        </div>
+        <p class="qtext">火車行駛 <b>210 km</b>，花了 <b>1 小時 45 分鐘</b>。時速多少 <span class="mono">km/h</span>？</p>
+        <div class="row">
+          <div class="field">
+            <label for="a10">答案（km/h）</label>
+            <input id="a10" inputmode="decimal" placeholder="例如：120" />
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="primary" onclick="check(10)">檢查</button>
+          <button onclick="showSol(10)">看解法</button>
+          <button class="danger" onclick="clearOne(10)">清除</button>
+        </div>
+        <div class="result" id="r10">提示：時間要全部換成「小時」。</div>
+        <div class="formula" id="s10" hidden>
+          <div><b>解法：</b>1 小時 45 分 = 1.75 小時。210÷1.75= <span class="mono">120</span>（km/h）。</div>
+        </div>
+      </article>
+
+      <div class="btnrow" style="margin-top:14px">
+        <button onclick="showAllSolutions()">全部看解法</button>
+        <button class="danger" onclick="resetAll()">全部清除</button>
+      </div>
+    </section>
+
+    <aside class="panel" aria-label="考前小抄">
+      <h2>考前小抄</h2>
+      <div class="card" style="margin:10px 0 0">
+        <p style="margin:0 0 8px; color:#dbeafe; font-weight:650">單元 1：混合運算</p>
+        <div class="formula" style="margin:0">
+          <div>有括號先算、先乘除後加減、由左而右</div>
+          <div><b>看到 1/3 這種除不盡分數</b>：不要用 0.33 代替</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p style="margin:0 0 8px; color:#dbeafe; font-weight:650">單元 2：圓與扇形（π=3.14）</p>
+        <div class="formula" style="margin:0">
+          <div class="mono">圓面積 A = 3.14 × r × r</div>
+          <div class="mono">扇形 = 圓面積 × (角度/360)</div>
+          <div class="mono">圓環 = 3.14 × (R² − r²)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p style="margin:0 0 8px; color:#dbeafe; font-weight:650">單元 3：速率（含平均速率）</p>
+        <div class="formula" style="margin:0">
+          <div class="mono">速率 = 距離 ÷ 時間</div>
+          <div class="mono">平均速率 = 總距離 ÷ 總時間</div>
+          <div>比較快慢：先把單位統一再比</div>
+        </div>
+      </div>
+
+      <p style="margin-top:10px">回到 <a href="../index.html">首頁</a>。</p>
+    </aside>
+  </main>
+
+  <footer>
+    <div>小提醒：如果孩子卡住，先讓他說「這題是在算哪一個公式？我需要先統一單位嗎？」</div>
+  </footer>
+
+  <script>
+    const EPS = 0.02; // decimal tolerance
+
+    // Rational helpers (for fraction / mixed-number input)
+    function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a||1;}
+
+    function parseRational(str){
+      if (str == null) return null;
+      let s = String(str).trim();
+      if (!s) return null;
+      s = s.replace(/,/g,'');
+
+      // If it's a plain number
+      if (/^[+-]?\d+(\.\d+)?$/.test(s)){
+        const x = Number(s);
+        if (!Number.isFinite(x)) return null;
+        // Convert to rational with denominator 1000 to be safe
+        const den = 1000;
+        const num = Math.round(x*den);
+        const g = gcd(num, den);
+        return {num: num/g, den: den/g, kind: 'decimal'};
+      }
+
+      // Mixed number: "a b/c"
+      const m = s.match(/^([+-]?\d+)\s+([+-]?\d+)\s*\/\s*([+-]?\d+)$/);
+      if (m){
+        const a = Number(m[1]);
+        const b = Number(m[2]);
+        const c = Number(m[3]);
+        if (!Number.isFinite(a)||!Number.isFinite(b)||!Number.isFinite(c)||c===0) return null;
+        const sign = a < 0 ? -1 : 1;
+        const absA = Math.abs(a);
+        const num = sign*(absA*c + Math.abs(b));
+        const den = Math.abs(c);
+        const g = gcd(num, den);
+        return {num: num/g, den: den/g, kind: 'mixed'};
+      }
+
+      // Fraction: "b/c"
+      const f = s.match(/^([+-]?\d+)\s*\/\s*([+-]?\d+)$/);
+      if (f){
+        const b = Number(f[1]);
+        const c = Number(f[2]);
+        if (!Number.isFinite(b)||!Number.isFinite(c)||c===0) return null;
+        const num = b;
+        const den = c;
+        const g = gcd(num, den);
+        return {num: num/g, den: den/g, kind: 'frac'};
+      }
+
+      return null;
+    }
+
+    function ratToFloat(r){return r.num / r.den;}
+
+    function nearDec(a,b){
+      return Math.abs(a-b) <= EPS;
+    }
+
+    function setResult(i, ok, text){
+      const el = document.getElementById('r'+i);
+      el.classList.remove('ok','bad');
+      el.classList.add(ok ? 'ok' : 'bad');
+      el.textContent = text;
+    }
+
+    const ANSWERS = {
+      1: {type:'rat', value:{num:2, den:3}, show:'2/3'},
+      2: {type:'dec', value:144, show:'144'},
+      3: {type:'rat', value:{num:19, den:12}, show:'1 7/12'},
+      4: {type:'dec', value:75.36, show:'75.36'},
+      5: {type:'dec', value:37.68, show:'37.68'},
+      6: {type:'dec', value:235.5, show:'235.5'},
+      7: {type:'sel', value:'cheetah', show:'獵豹'},
+      8: {type:'dec', value:60, show:'60'},
+      9: {type:'rat', value:{num:24, den:7}, show:'3 3/7'},
+      10:{type:'dec', value:120, show:'120'},
+    };
+
+    function check(i){
+      const ans = ANSWERS[i];
+
+      if (ans.type === 'sel'){
+        const v = document.getElementById('a'+i).value;
+        if (!v){
+          setResult(i,false,'請先選擇答案。');
+          return;
+        }
+        if (v === ans.value){
+          setResult(i,true,'✅ 正確！');
+        } else {
+          setResult(i,false,`❌ 再想想～（提示：答案是 ${ans.show}）`);
+        }
+        return;
+      }
+
+      const raw = document.getElementById('a'+i).value;
+      const r = parseRational(raw);
+      if (!r){
+        setResult(i,false,'請輸入數字或分數（例如 2/3 或 1 7/12）。');
+        return;
+      }
+
+      if (ans.type === 'rat'){
+        // compare as rational exactly
+        const aNum = r.num;
+        const aDen = r.den;
+        const bNum = ans.value.num;
+        const bDen = ans.value.den;
+        const ok = (aNum*bDen === bNum*aDen);
+        if (ok) setResult(i,true,'✅ 正確！');
+        else setResult(i,false,`❌ 再想想～（提示：答案是 ${ans.show}）`);
+        return;
+      }
+
+      if (ans.type === 'dec'){
+        const x = ratToFloat(r);
+        const ok = nearDec(x, ans.value) || x === ans.value;
+        if (ok) setResult(i,true,'✅ 正確！');
+        else setResult(i,false,`❌ 再想想～（提示：答案約 ${ans.show}）`);
+        return;
+      }
+    }
+
+    function showSol(i){
+      document.getElementById('s'+i).hidden = false;
+    }
+
+    function showAllSolutions(){
+      for (let i=1;i<=10;i++) showSol(i);
+    }
+
+    function clearOne(i){
+      const ans = ANSWERS[i];
+      if (ans.type === 'sel') document.getElementById('a'+i).value = '';
+      else document.getElementById('a'+i).value = '';
+
+      document.getElementById('s'+i).hidden = true;
+      const r = document.getElementById('r'+i);
+      r.classList.remove('ok','bad');
+      r.textContent = '已清除。';
+    }
+
+    function resetAll(){
+      for (let i=1;i<=10;i++) clearOne(i);
+    }
+  </script>
+</body>
+</html>
