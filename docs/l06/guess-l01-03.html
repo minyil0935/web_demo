@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>六下數學 第一、二、三課 考前猜題進階版</title>
+  <title>六下數學 第一、二、三課 段考猜題</title>
   <style>
     :root {
-      --bg: #f3f7ff;
+      --bg: #f4f7fb;
       --card: #ffffff;
       --text: #1f2937;
       --muted: #5b6472;
@@ -22,10 +22,10 @@
       font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
       background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 100%);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.8;
     }
     .wrap {
-      width: min(1120px, calc(100% - 24px));
+      width: min(1150px, calc(100% - 24px));
       margin: 0 auto;
       padding: 24px 0 48px;
     }
@@ -38,7 +38,7 @@
     }
     .hero h1 {
       margin: 0 0 10px;
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
       line-height: 1.25;
     }
     .hero p, .hero li { margin: 0; color: rgba(255,255,255,0.96); }
@@ -66,8 +66,8 @@
       font-weight: 700;
       margin-bottom: 12px;
     }
-    h2 { margin: 0 0 8px; font-size: 1.12rem; }
-    .question { margin: 0 0 12px; }
+    h2 { margin: 0 0 10px; font-size: 1.12rem; }
+    .question { margin: 0 0 14px; }
     .answer {
       background: #f8fafc;
       border-left: 4px solid #34d399;
@@ -75,6 +75,12 @@
       border-radius: 12px;
       color: var(--good);
       font-weight: 700;
+    }
+    .blank {
+      display: inline-block;
+      min-width: 84px;
+      border-bottom: 2px solid #94a3b8;
+      transform: translateY(-2px);
     }
     .hint {
       margin-top: 24px;
@@ -93,88 +99,88 @@
 <body>
   <main class="wrap">
     <section class="hero">
-      <h1>六下數學，第一、二、三課考前猜題進階版</h1>
-      <p>這版提高難度，改成更像考前常出的綜合題與陷阱題。</p>
+      <h1>六下數學 第一、二、三課 段考猜題</h1>
+      <p>改成較接近學校段考的題型，題幹較長、資訊較多，需自己整理重點再作答。</p>
       <ul>
-        <li>範圍包含分數與小數、百分率、圓周長與面積、生活應用</li>
-        <li>同時支援電腦版與手機版</li>
-        <li>每題附答案，方便考前衝刺</li>
+        <li>範圍：分數與小數計算、百分率、圓周長與圓面積、生活應用</li>
+        <li>支援手機與電腦閱讀</li>
+        <li>每題保留作答空間，下方附答案方便對照</li>
       </ul>
     </section>
 
     <section class="grid">
       <article class="card">
         <div class="tag">第 1 題</div>
-        <h2>分數、小數混合計算</h2>
-        <p class="question">3/4 ÷ 0.6 × 2/5 = ?</p>
-        <div class="answer">答案：1/2</div>
+        <h2>分數與小數混合計算</h2>
+        <p class="question">園遊會當天，志工先把 3/4 公升的果汁平均分成 0.6 公升一份，再取其中每份的 2/5 給小朋友試喝。請問最後試喝的果汁共有多少公升？答案：<span class="blank"></span></p>
+        <div class="answer">答案：1/2 公升</div>
       </article>
 
       <article class="card">
         <div class="tag">第 2 題</div>
-        <h2>先乘除後加減</h2>
-        <p class="question">2.4 + 3/5 × 1.5 = ?</p>
+        <h2>四則混合運算</h2>
+        <p class="question">老師買了 2.4 公斤的黏土，又拿出其中 3/5 的重量，每公斤平均分成 1.5 份作為小組材料。若依題意計算 2.4 + 3/5 × 1.5，結果是多少？答案：<span class="blank"></span></p>
         <div class="answer">答案：3.3</div>
       </article>
 
       <article class="card">
         <div class="tag">第 3 題</div>
-        <h2>百分率折扣</h2>
-        <p class="question">一件外套原價 1200 元，先打 8 折，再打 9 折，最後售價是多少元？</p>
+        <h2>連續折扣</h2>
+        <p class="question">體育用品店舉辦促銷，一件外套原價 1200 元，先打 8 折，再使用會員券再打 9 折。請問這件外套最後要付多少元？答案：<span class="blank"></span></p>
         <div class="answer">答案：864 元</div>
       </article>
 
       <article class="card">
         <div class="tag">第 4 題</div>
         <h2>百分率反推</h2>
-        <p class="question">某班今天出席 36 人，出席率是 90%，全班原本有多少人？</p>
+        <p class="question">某班今天因為校外教學集合，全班到齊狀況要回報給學務處。老師清點後發現今天出席 36 人，出席率剛好是 90%。請問這個班原本共有幾人？答案：<span class="blank"></span></p>
         <div class="answer">答案：40 人</div>
       </article>
 
       <article class="card">
         <div class="tag">第 5 題</div>
-        <h2>圓周長綜合</h2>
-        <p class="question">一個圓的直徑是 14 公分，圓周長是多少公分？（π 取 22/7）</p>
+        <h2>圓周長應用</h2>
+        <p class="question">學校準備在圓形花圃外圍裝飾緞帶，花圃的直徑是 14 公分。如果緞帶要剛好繞花圃一圈，至少需要多少公分？（π 取 22/7）答案：<span class="blank"></span></p>
         <div class="answer">答案：44 公分</div>
       </article>
 
       <article class="card">
         <div class="tag">第 6 題</div>
-        <h2>圓面積綜合</h2>
-        <p class="question">一個圓的周長是 31.4 公分，半徑是多少公分？面積是多少平方公分？（π 取 3.14）</p>
+        <h2>由圓周長反求半徑與面積</h2>
+        <p class="question">一個圓形桌墊的周長量得是 31.4 公分。若 π 取 3.14，請先求出這個圓的半徑，再求出桌墊的面積。答案：半徑 <span class="blank"></span> 公分，面積 <span class="blank"></span> 平方公分</p>
         <div class="answer">答案：半徑 5 公分，面積 78.5 平方公分</div>
       </article>
 
       <article class="card">
         <div class="tag">第 7 題</div>
-        <h2>比大小</h2>
-        <p class="question">比較 7/8、0.82、85%，由大到小排列。</p>
+        <h2>分數、小數、百分率比較</h2>
+        <p class="question">園藝社要比較三塊花圃已完成的種植進度，分別是 7/8、0.82、85%。請將這三個數由大到小排列。答案：<span class="blank" style="min-width:180px"></span></p>
         <div class="answer">答案：7/8 ＞ 85% ＞ 0.82</div>
       </article>
 
       <article class="card">
         <div class="tag">第 8 題</div>
-        <h2>生活應用題</h2>
-        <p class="question">一桶油重 18 公斤，用掉 2/9 後，又加入 3 公斤，現在共有多少公斤？</p>
+        <h2>分率生活應用</h2>
+        <p class="question">合作社原本有一桶 18 公斤的食用油，先用掉 2/9，下午又補進 3 公斤。請問現在桶裡共有多少公斤的油？答案：<span class="blank"></span></p>
         <div class="answer">答案：17 公斤</div>
       </article>
 
       <article class="card">
         <div class="tag">第 9 題</div>
-        <h2>圓形跑道題</h2>
-        <p class="question">一個圓形花園半徑是 6 公尺，小明沿著外圍走 3 圈，共走多少公尺？（π 取 3.14）</p>
+        <h2>圓周長多圈應用題</h2>
+        <p class="question">社區有一個半徑 6 公尺的圓形花園，小明每天沿著外圍慢跑 3 圈。若 π 取 3.14，請問他一共跑了多少公尺？答案：<span class="blank"></span></p>
         <div class="answer">答案：113.04 公尺</div>
       </article>
 
       <article class="card">
         <div class="tag">第 10 題</div>
-        <h2>綜合應用題</h2>
-        <p class="question">一塊圓形草地半徑 10 公尺，其中 25% 種花，其餘種草。種草部分的面積是多少平方公尺？（π 取 3.14）</p>
+        <h2>百分率與圓面積綜合題</h2>
+        <p class="question">一塊半徑 10 公尺的圓形草地，其中 25% 的面積規劃成花圃，其餘部分保留種草。若 π 取 3.14，請問種草部分的面積是多少平方公尺？答案：<span class="blank"></span></p>
         <div class="answer">答案：235.5 平方公尺</div>
       </article>
     </section>
 
-    <p class="hint">如果你要更像正式考卷，我也可以再改成「不直接顯示答案、附作答區、可列印版」。</p>
+    <p class="hint">如果你要，我下一版可以直接做成「左邊只有題目、右邊另外一頁答案」的正式列印考卷版。</p>
   </main>
 </body>
 </html>
