@@ -1,465 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>六下數學 第1～3課｜考前猜題 10 題</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>六下數學 第一、二、三課 考前猜題</title>
   <style>
-    :root{
-      --bg:#0b1020;
-      --card:#111a33;
-      --card2:#0f1730;
-      --text:#eaf0ff;
-      --muted:#b8c4ff;
-      --accent:#6ea8ff;
-      --good:#35d07f;
-      --border:rgba(255,255,255,.12);
-      --shadow:0 12px 35px rgba(0,0,0,.35);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
-      background: radial-gradient(1200px 700px at 30% -10%, rgba(110,168,255,.25), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(53,208,127,.18), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.55;
-    }
-    header{
-      padding:24px 16px 10px;
-      max-width:1100px;
-      margin:0 auto;
-    }
-    .title{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:flex-end;
-      justify-content:space-between;
-    }
-    h1{
-      margin:0;
-      font-size: clamp(20px, 3vw, 30px);
-      letter-spacing:.2px;
-    }
-    .meta{
-      margin-top:10px;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .pillbar{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
-    .pill{
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:13px;
-      color:var(--muted);
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2a37;
+      --muted: #5b6575;
+      --primary: #2563eb;
+      --accent: #eff6ff;
+      --border: #dbe4f0;
+      --success: #0f766e;
+      --shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
     }
 
-    main{max-width:1100px; margin:0 auto; padding:14px 16px 40px}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-    }
-    @media (min-width: 860px){
-      .grid{grid-template-columns: 1fr 1fr; gap:16px;}
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid var(--border);
-      border-radius: var(--radius);
+    .wrap {
+      width: min(1100px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      color: white;
+      border-radius: 24px;
+      padding: 28px 24px;
       box-shadow: var(--shadow);
-      overflow:hidden;
     }
-    .card .top{
-      padding:16px 16px 0;
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .num{
-      min-width:36px;
-      height:36px;
-      border-radius:10px;
-      background: rgba(110,168,255,.18);
-      border:1px solid rgba(110,168,255,.35);
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-    }
-    .qtitle{margin:0; font-size:16px}
-    .tag{
-      margin-top:6px;
-      display:inline-block;
-      font-size:12px;
-      padding:4px 8px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      color:var(--muted);
-      background: rgba(0,0,0,.12);
-    }
-    .content{padding:10px 16px 14px}
-    .question{margin:8px 0 12px; color:var(--text)}
-    .hint{
-      margin:10px 0 0;
-      padding:10px 12px;
-      border-radius:12px;
-      background: rgba(110,168,255,.10);
-      border:1px solid rgba(110,168,255,.28);
-      color: var(--muted);
-      font-size:13px;
-    }
-    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
-    button{
-      appearance:none;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      padding:9px 12px;
-      border-radius:12px;
-      cursor:pointer;
-      font-weight:600;
-    }
-    button.primary{
-      border-color: rgba(53,208,127,.35);
-      background: rgba(53,208,127,.12);
-    }
-    button:active{transform: translateY(1px)}
 
-    .answer{
-      display:none;
-      margin-top:12px;
-      padding:12px;
-      border-radius:12px;
-      background: rgba(53,208,127,.10);
-      border:1px solid rgba(53,208,127,.25);
-      color: var(--text);
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.25;
     }
-    .answer b{color: #d6ffe8}
-    .steps{margin:8px 0 0; padding-left:18px; color: var(--muted)}
 
-    footer{
-      max-width:1100px;
-      margin:0 auto;
-      padding: 0 16px 26px;
+    .hero p, .hero li {
+      margin: 0;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .hero ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .question {
+      margin: 0 0 12px;
+    }
+
+    .answer {
+      background: #f8fafc;
+      border-left: 4px solid #34d399;
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .hint {
+      margin-top: 24px;
       color: var(--muted);
-      font-size:13px;
+      font-size: 0.95rem;
+      text-align: center;
     }
-    .note{
-      border:1px dashed var(--border);
-      border-radius: var(--radius);
-      padding:12px 14px;
-      background: rgba(255,255,255,.03);
+
+    @media (max-width: 768px) {
+      .wrap { width: min(100% - 16px, 1000px); padding-top: 16px; }
+      .hero, .card { border-radius: 18px; }
+      .grid { grid-template-columns: 1fr; gap: 14px; }
+      .card { padding: 16px; }
     }
-    code{background: rgba(255,255,255,.07); padding:2px 6px; border-radius:8px}
   </style>
 </head>
 <body>
-  <header>
-    <div class="title">
-      <h1>六下數學 第1～3課｜考前猜題 10 題</h1>
-      <div class="pillbar" aria-label="settings">
-        <span class="pill">支援：電腦／手機（RWD）</span>
-        <span class="pill">圓周率採用 3.14</span>
-        <span class="pill">可點「看解答」展開</span>
-      </div>
-    </div>
-    <div class="meta">範圍：第1課（小數/分數四則）、第2課（圓與扇形面積）、第3課（速率）</div>
-  </header>
-
-  <main>
-    <section class="grid">
-
-      <!-- 1 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">1</div>
-          <div>
-            <p class="qtitle">混合運算（分數＋小數：避免除不盡）</p>
-            <span class="tag">第1課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">計算：<b>0.75 − 1/3</b></div>
-          <div class="hint">提示：1/3 不能化成有限小數，建議把 0.75 也化成分數再算。</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a1">看解答</button>
-          </div>
-          <div class="answer" id="a1">
-            <div><b>答案：</b>5/12</div>
-            <ol class="steps">
-              <li>0.75 = 3/4</li>
-              <li>3/4 − 1/3 = 9/12 − 4/12 = 5/12</li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">2</div>
-          <div>
-            <p class="qtitle">分配律簡化計算</p>
-            <span class="tag">第1課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">計算：<b>12 2/3 × 4.2 − 12 2/3 × 3.2</b></div>
-          <div class="hint">提示：把共同的乘數提出來，先算括號。</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a2">看解答</button>
-          </div>
-          <div class="answer" id="a2">
-            <div><b>答案：</b>12 2/3（= 38/3）</div>
-            <ol class="steps">
-              <li>提出共同乘數：12 2/3 × 4.2 − 12 2/3 × 3.2 = 12 2/3 × (4.2 − 3.2)</li>
-              <li>先算括號：4.2 − 3.2 = 1</li>
-              <li>所以結果 = 12 2/3 × 1 = <b>12 2/3</b></li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 3 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">3</div>
-          <div>
-            <p class="qtitle">連除改顛倒連乘（並約分）</p>
-            <span class="tag">第1課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">計算：<b>(6/5) ÷ (9/7) ÷ (7/5)</b></div>
-          <div class="hint">提示：連續除法 → 變成乘以倒數，再約分。</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a3">看解答</button>
-          </div>
-          <div class="answer" id="a3">
-            <div><b>答案：</b>2/3</div>
-            <ol class="steps">
-              <li>(6/5) ÷ (9/7) ÷ (7/5) = (6/5) × (7/9) × (5/7)</li>
-              <li>約分：7 與 7 抵消、5 與 5 抵消 → 剩 6/9</li>
-              <li>6/9 再約分 = <b>2/3</b></li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 4 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">4</div>
-          <div>
-            <p class="qtitle">已知圓周長，求圓面積</p>
-            <span class="tag">第2課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">一個圓的圓周長是 <b>31.4 公分</b>，求它的面積。（π 取 3.14）</div>
-          <div class="hint">提示：先用 圓周長 = 直徑×3.14 → 找直徑 → 半徑 → 面積。</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a4">看解答</button>
-          </div>
-          <div class="answer" id="a4">
-            <div><b>答案：</b>78.5 平方公分</div>
-            <ol class="steps">
-              <li>直徑 = 31.4 ÷ 3.14 = 10</li>
-              <li>半徑 = 10 ÷ 2 = 5</li>
-              <li>面積 = 5×5×3.14 = 78.5</li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 5 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">5</div>
-          <div>
-            <p class="qtitle">半徑倍數 → 面積平方倍（披薩比較）</p>
-            <span class="tag">第2課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">A 披薩直徑 <b>12 吋</b>；B 披薩直徑 <b>6 吋</b>。請問 <b>1 個 A</b> 的面積是 <b>幾個 B</b> 的面積？</div>
-          <div class="hint">提示：直徑 12 是 6 的 2 倍 → 半徑也 2 倍 → 面積會變幾倍？</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a5">看解答</button>
-          </div>
-          <div class="answer" id="a5">
-            <div><b>答案：</b>4 個</div>
-            <ol class="steps">
-              <li>直徑差 2 倍 → 半徑差 2 倍</li>
-              <li>面積與半徑平方成正比 → 2² = 4 倍</li>
-              <li>所以 1 個直徑 12 吋的面積 = 4 個直徑 6 吋的面積</li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 6 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">6</div>
-          <div>
-            <p class="qtitle">圓環面積（大圓 − 小圓）</p>
-            <span class="tag">第2課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">一個圓環外圓半徑 <b>6 公分</b>、內圓半徑 <b>2 公分</b>，求圓環面積。（π 取 3.14）</div>
-          <div class="hint">提示：面積 = 3.14×(6² − 2²)</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a6">看解答</button>
-          </div>
-          <div class="answer" id="a6">
-            <div><b>答案：</b>100.48 平方公分</div>
-            <ol class="steps">
-              <li>外圓面積 = 6×6×3.14 = 113.04</li>
-              <li>內圓面積 = 2×2×3.14 = 12.56</li>
-              <li>圓環面積 = 113.04 − 12.56 = 100.48</li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 7 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">7</div>
-          <div>
-            <p class="qtitle">扇形面積（幾分之幾圓）</p>
-            <span class="tag">第2課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">半徑 <b>7 公分</b>、圓心角 <b>144°</b> 的扇形面積是多少？（π 取 3.14）</div>
-          <div class="hint">提示：扇形面積 = 圓面積 × (144/360)</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a7">看解答</button>
-          </div>
-          <div class="answer" id="a7">
-            <div><b>答案：</b>61.544 平方公分（約 61.54）</div>
-            <ol class="steps">
-              <li>圓面積 = 7×7×3.14 = 153.86</li>
-              <li>比例 = 144/360 = 0.4</li>
-              <li>扇形面積 = 153.86×0.4 = 61.544</li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 8 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">8</div>
-          <div>
-            <p class="qtitle">牆角動物活動範圍（3/4 圓）</p>
-            <span class="tag">第2課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">小狗拴在房子<b>外牆角落</b>，繩長 <b>4 公尺</b>。房子擋住 90°，小狗最多能活動的面積是多少？（π 取 3.14）</div>
-          <div class="hint">提示：被擋住 1/4 圓，剩下 3/4 圓。</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a8">看解答</button>
-          </div>
-          <div class="answer" id="a8">
-            <div><b>答案：</b>37.68 平方公尺</div>
-            <ol class="steps">
-              <li>整個圓面積 = 4×4×3.14 = 50.24</li>
-              <li>可活動 = 3/4 圓 → 50.24×3/4 = 37.68</li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 9 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">9</div>
-          <div>
-            <p class="qtitle">速率單位換算＋快慢比較</p>
-            <span class="tag">第3課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">甲的速率是 <b>分速 1.3 公里</b>，乙的速率是 <b>時速 57 公里</b>。誰比較快？快多少？</div>
-          <div class="hint">提示：先把單位統一（都變成時速或分速）。</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a9">看解答</button>
-          </div>
-          <div class="answer" id="a9">
-            <div><b>答案：</b>甲比較快，快 21 公里/時</div>
-            <ol class="steps">
-              <li>甲：分速 1.3 公里 → 1 小時 60 分 → 時速 = 1.3×60 = 78 公里/時</li>
-              <li>乙：時速 57 公里/時</li>
-              <li>差 = 78 − 57 = 21 公里/時</li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <!-- 10 -->
-      <article class="card">
-        <div class="top">
-          <div class="num">10</div>
-          <div>
-            <p class="qtitle">往返平均速率（總距離 ÷ 總時間）</p>
-            <span class="tag">第3課</span>
-          </div>
-        </div>
-        <div class="content">
-          <div class="question">從家到山頂單程 <b>12 公里</b>。上山時速 <b>4 公里</b>，下山時速 <b>6 公里</b>。全程（上＋下）的平均速率是多少？</div>
-          <div class="hint">提示：平均速率不是(4+6)/2！先求上山時間、下山時間。</div>
-          <div class="actions">
-            <button class="primary" data-toggle="a10">看解答</button>
-          </div>
-          <div class="answer" id="a10">
-            <div><b>答案：</b>4.8 公里/時</div>
-            <ol class="steps">
-              <li>上山時間 = 12 ÷ 4 = 3 小時</li>
-              <li>下山時間 = 12 ÷ 6 = 2 小時</li>
-              <li>總距離 = 24 公里；總時間 = 5 小時</li>
-              <li>平均速率 = 24 ÷ 5 = 4.8 公里/時</li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-    </section>
-  </main>
-
-  <footer>
-    <div class="note">
-      <div><b>使用方式：</b></div>
-      <ul style="margin:8px 0 0; padding-left:18px">
-        <li>把這個檔案存成 <code>.html</code>，用手機或電腦瀏覽器開啟即可（離線也可）。</li>
-        <li>想印成紙本：用瀏覽器列印 → 版面選「適合頁面」。</li>
+  <main class="wrap">
+    <section class="hero">
+      <h1>六下數學，第一、二、三課考前猜題</h1>
+      <p>共 10 題，整理成常見考法，適合考前快速練習。</p>
+      <ul>
+        <li>題型包含計算、比較、應用題</li>
+        <li>可直接在電腦或手機開啟閱讀</li>
+        <li>每題下方附上答案，方便自我檢查</li>
       </ul>
-      <div style="margin-top:10px">如果你希望我再做「可填寫答案、最後自動算分」的版本，我也可以加上作答框與計分。</div>
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    document.querySelectorAll('[data-toggle]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-toggle');
-        const el = document.getElementById(id);
-        const open = el.style.display === 'block';
-        el.style.display = open ? 'none' : 'block';
-        btn.textContent = open ? '看解答' : '收起解答';
-      });
-    });
-  </script>
+    <section class="grid">
+      <article class="card">
+        <div class="tag">第 1 題</div>
+        <h2>分數乘法</h2>
+        <p class="question">3/5 × 10/9 = ?</p>
+        <div class="answer">答案：2/3</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 2 題</div>
+        <h2>分數除法</h2>
+        <p class="question">4/7 ÷ 2/3 = ?</p>
+        <div class="answer">答案：6/7</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 3 題</div>
+        <h2>小數與分數互換</h2>
+        <p class="question">把 0.375 化成最簡分數。</p>
+        <div class="answer">答案：3/8</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 4 題</div>
+        <h2>比大小</h2>
+        <p class="question">比較 5/6 和 0.8，哪一個比較大？</p>
+        <div class="answer">答案：5/6 比較大，因為 5/6 ≈ 0.833</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 5 題</div>
+        <h2>百分率</h2>
+        <p class="question">一件商品原價 800 元，打 75 折後是多少元？</p>
+        <div class="answer">答案：600 元</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 6 題</div>
+        <h2>百分率應用</h2>
+        <p class="question">全班 40 人，今天有 5 人請假，出席率是多少？</p>
+        <div class="answer">答案：87.5%</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 7 題</div>
+        <h2>圓周長</h2>
+        <p class="question">半徑 7 公分的圓，圓周長是多少公分？（π 取 22/7）</p>
+        <div class="answer">答案：44 公分</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 8 題</div>
+        <h2>圓面積</h2>
+        <p class="question">直徑 10 公分的圓，面積是多少平方公分？（π 取 3.14）</p>
+        <div class="answer">答案：78.5 平方公分</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 9 題</div>
+        <h2>生活應用題</h2>
+        <p class="question">媽媽買了 2.4 公斤的葡萄，吃掉 1/3 後，還剩多少公斤？</p>
+        <div class="answer">答案：1.6 公斤</div>
+      </article>
+
+      <article class="card">
+        <div class="tag">第 10 題</div>
+        <h2>綜合題</h2>
+        <p class="question">一個圓形花圃半徑是 4 公尺，周圍要圍上柵欄，至少需要多少公尺？（π 取 3.14）</p>
+        <div class="answer">答案：25.12 公尺</div>
+      </article>
+    </section>
+
+    <p class="hint">如果你要，我也可以下一步幫你改成「更像正式考卷」的版本，加入作答空格、列印版和下載按鈕。</p>
+  </main>
 </body>
 </html>
